@@ -1,26 +1,8 @@
 # Sports
 
 ## Задание 1
-
-SELECT name,
-       num
-FROM (
-  SELECT unnest(tags) as tag, 
-         count(*) as num
-  FROM sports_posts
-  GROUP BY tag) tags_n
-LEFT JOIN sports_tags
-  ON sports_tags.tag_id = tags_n.tag
-ORDER BY num desc
-limit 5;
-
-
-SELECT post_id
-FROM sports_posts
-WHERE array_length(tags, 1) = (SELECT max(array_length(tags, 1)) 
-							   FROM sports_posts)
                  
-Также приложил два файлика 1.1 и 1.2 
+Приложил два файлика 1.1 и 1.2 
 
 
 ## Задание 2
