@@ -1,0 +1,13 @@
+SELECT name,
+       num
+FROM (
+  SELECT unnest(tags) as tag, 
+         count(*) as num
+  FROM sports_posts
+  GROUP BY tag) tags_n
+  
+LEFT JOIN sports_tags
+  ON sports_tags.tag_id = tags_n.tag
+  
+ORDER BY num desc
+limit 5;

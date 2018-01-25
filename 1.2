@@ -1,0 +1,4 @@
+SELECT post_id
+FROM sports_posts
+WHERE array_length(tags, 1) = (SELECT max(array_length(tags, 1)) 
+							   FROM sports_posts)
